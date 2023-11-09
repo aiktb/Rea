@@ -1,0 +1,164 @@
+---
+date: 2023-11-03
+head:
+  - - link
+    - rel: 'stylesheet'
+      href: 'https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&display=swap'
+---
+
+# Stop Using kuromoji.js: @sglkc/kuromoji is a Better, More Modern Fork
+
+![](/img/2023-11-03-19-42.webp)
+
+## TL;DR
+
+1. [kuromoji.js](https://github.com/takuyaa/kuromoji.js) has been the top choice for Japanese morphological analysis in JavaScript.
+2. However, kuromoji.js lacks direct browser compatibility and Service Worker support.
+3. Meet [@sglkc/kuromoji](https://github.com/sglkc/kuromoji.js), a fork that resolves these limitations.
+
+## Why Choose kuromoji.js
+
+[kuromoji.js](https://github.com/takuyaa/kuromoji.js) is a Node.js version of [kuromoji](https://github.com/atilika/kuromoji), the main purpose of which is to perform morphological analysis of Japanese, providing information on the segmentation and pronunciation of Japanese text.
+
+I developed [Furigana Maker](https://github.com/aiktb/FuriganaMaker), a browser extension that adds ruby character annotations to Japanese text on any page, like the example below. And the core logic of this extension is morphological analysis of Japanese text, so I was in great need of such a library to do this task for me.
+
+<p align="center" lang="ja">
+  <ruby>私<rt>watashi</rt></ruby
+  >の<ruby>言語<rt>gengo</rt></ruby
+  >の<ruby>境界<rt>kyokai</rt></ruby
+  >は、<ruby>私<rt>watashi</rt></ruby
+  >の<ruby>世界<rt>sekai</rt></ruby
+  >の<ruby>境界<rt>kyokai</rt></ruby
+  >を<ruby>意味<rt>imi</rt></ruby
+  >する。
+</p>
+
+Considering the npm landscape, kuromoji.js remains the primary solution for Japanese morphological analysis in JavaScript. Most packages related to **"Japanese morphological"** indirectly rely on kuromoji.js, leaving minimal alternatives.
+
+## Challenges with kuromoji.js
+
+### Tolerable Issues
+
+Firstly kuromoji.js disrespects the kuromoji API in its porting, changing a large number of field names, and worst of all it goes so far as to change the `word_position` field, which starts at 0, to start at 1. This certainly greatly diminishes the happiness of programmers.
+
+Secondly kuromoji.js doesn't support promise, only callback function, which can make the code structure messy, this can be solved by manually writing code to encapsulate it as a promise, a solution will be provided at [the end of the article](#using-promise).
+
+### Unacceptable Limitations
+
+By default, integrating kuromoji.js into the browser involves referencing a CDN or directly including `build/kuromoji.js` in the project. However, this method negates many advantages of build tools, disrupts project structures, and crucially restricts ESM usage, because `build/kuromoji.js` is not an ES module.
+
+Using a build tool to package a project dependent on kuromoji.js and running it in the browser leads to a cascade of errors:
+
+1. kuromoji.js uses zlib.js, which does not run in the browser.
+2. kuromoji.js uses `path` , which is part of the Node.js core module.
+
+Also kuromoji.js consumes a steady 130MB (not extensively tested) of memory once it is active, which is a huge overhead, whereas browser extensions can very easily take advantage of Service Worker by starting it only when it is needed, and killing the process when it is not needed, rather than just letting it reside in memory.
+
+But Service Worker only supports the **Fetch API**, and kuromoji.js uses **XMLHttpRequest**, which will bring another error in Service Worker.
+
+## The Solution: @sglkc/kuromoji
+
+Don't try to solve these problems with polyfill, I've wasted a lot of time with that, modifying the kuromoji.js source code is necessary to solve the issues.
+
+And with the last commit of the kuromoji.js project in 2018 and the author Takuya Asano's last activity on github in 2022, it's to be expected that we won't be able to get any help from him, including merge Pull Request.
+
+The only solution was to fork this repo and then commit, publish, and luckily when I was about to start solving it myself, I was pleasantly surprised at NPM to find someone who had done everything I needed not too long ago, namely [@sglkc/kuromoji](https://github.com/sglkc/kuromoji.js), a fork of kuromoji.js.
+
+The changes can be seen in the [sglkc's commit log](https://github.com/takuyaa/kuromoji.js/compare/master...sglkc:kuromoji.js:master):
+
+1. Substituting zlib.js with fflate.
+2. Eliminating reliance on the `path` module.
+3. Transitioning from XMLHttpRequest to the Fetch API.
+
+This solves all the key issues, and now we can easily package it up with the build tool and run it in the browser and Service Worker without any errors, and @sglkc/kuromoji doesn't have any changes to the kuromoji.js API.
+
+Thanks to [@sglkc](https://github.com/sglkc) for his excellent work!
+
+## Further Reading
+
+### Using Promise
+
+This just needs a simple wrapper, this code references [kuromojin](https://github.com/azu/kuromojin).
+
+::: code-group
+
+```typescript [index.ts]
+import { getTokenizer } from './getTokenizer'
+
+const tokenizer = await getTokenizer()
+const tokens = tokenizer.tokenize('私の言語の境界は')
+/* [
+  {"word_position": 1, "surface_form": "私", "pos": "名詞", "pronunciation": "ワタシ"},
+  {"word_position": 2, "surface_form": "の", "pos": "助詞", "pronunciation": "ノ"},
+  {"word_position": 3, "surface_form": "言語", "pos": "名詞", "pronunciation": "ゲンゴ"},
+  {"word_position": 5, "surface_form": "の", "pos": "助詞", "pronunciation": "ノ"},
+  {"word_position": 6, "surface_form": "境界", "pos": "名詞", "pronunciation": "キョーカイ"},
+  {"word_position": 8, "surface_form": "は", "pos": "助詞", "pronunciation": "ワ"}
+] */
+```
+
+```typescript [getTokenizer.ts]
+// No need for `@ts-ignore`, contains index.d.ts by default.
+import kuromoji from '@sglkc/kuromoji'
+
+type Tokenizer = {
+  tokenize: (text: string) => kuromoji.IpadicFeatures[]
+}
+
+class Deferred {
+  promise: Promise<Tokenizer>
+  resolve!: (value: Tokenizer) => void
+  reject!: (reason: Error) => void
+  constructor() {
+    this.promise = new Promise<Tokenizer>((resolve, reject) => {
+      this.resolve = resolve
+      this.reject = reject
+    })
+  }
+}
+
+const deferred = new Deferred()
+let isLoading = false
+
+export const getTokenizer = () => {
+  if (isLoading) {
+    return deferred.promise
+  }
+  isLoading = true
+  const builder = kuromoji.builder({
+    dicPath: './assets/dicts',
+  })
+  builder.build((err: undefined | Error, tokenizer: Tokenizer) => {
+    if (err) {
+      deferred.reject(err)
+    } else {
+      deferred.resolve(tokenizer)
+    }
+  })
+  return deferred.promise
+}
+```
+
+:::
+
+### WanaKana
+
+For processing Japanese text, there is a very nice library [WanaKana](https://github.com/WaniKani/WanaKana) that handles **[romoji, hiragana, katakana]** interconversions, as well as determining which of **[kanji, romoji, hiragana, katakana]** a Unicode character is.
+
+Note that this is [not as simple as you might think](https://green.adam.ne.jp/roomazi/onamae.html#naze), and I recommend using WanaKana directly to bypass the complexity behind this, and only use the regex if the results don't meet your needs.
+
+### Getting kanji pronunciation
+
+I accomplished something similar by extracting the kanji pronunciations from the Japanese text in the following form.
+
+```typescript
+// It's not just kanji, such as "市ヶ谷" (イチガヤ), "我々" (ワレワレ).
+export type KanjiToken = {
+  original: string
+  reading: string
+  start: number // Indexes start from 0
+  end: number
+}
+```
+
+Since it takes less than 150 lines of code, there is no need to publish it to NPM and [the full code can be read at Github](https://github.com/aiktb/FuriganaMaker/blob/main/src/contents/kanjiTokenizer.ts).

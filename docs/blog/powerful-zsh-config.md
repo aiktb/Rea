@@ -1,0 +1,152 @@
+---
+date: 2023-11-04
+---
+
+# Oh-My-Zsh + Powerlevel10k: Zsh One-Click Configuration Script
+
+![](/img/2023-11-03-19-19.webp)
+
+> This article utilizes Ubuntu & [Termius](https://termius.com/), [run the configuration script here](#one-click-configuration-script).
+
+## Why Use Zsh?
+
+1. Aesthetic Shell themes and code highlighting.
+2. Enhanced code prompts and auto-completion compared to Bash.
+3. Support for a variety of plugins and themes.
+
+## Oh-My-Zsh
+
+Given the wealth of plugins and themes in the Zsh ecosystem, [Oh-My-Zsh](https://ohmyz.sh/) serves as an out-of-the-box tool for managing plugins and themes, simplifying Zsh configuration.
+
+Here's the list of readily available themes and plugins on [GitHub](https://github.com/ohmyzsh/ohmyzsh):
+
+- [Themes](https://github.com/ohmyzsh/ohmyzsh/wiki/Themes)
+- [Plugins](https://github.com/ohmyzsh/ohmyzsh/wiki/Plugins)
+
+However, these lists lack succinct descriptions. Many plugins are mainly used by developers and may not be of significant use. One must navigate through the links, wasting time. Hence, this list is more suitable for users interested in extensive exploration, particularly those seeking alias plugins. For regular users, the recommended plugins and themes suffice.
+
+Moreover, numerous Zsh plugins and themes are not integrated into Oh-My-Zsh, such as Powerlevel10k, zsh-autosuggestions, requiring downloads from the respective GitHub repositories to be used in Zsh.
+
+## Plugins
+
+Since I'm not a fan of using aliases, my list of recommended plugins excludes command aliasing:
+
+> The `thefuck` plugin is incompatible with `sudo` since they both utilize the `Double ESC` shortcut.
+
+| Name                                                                                          | Oh-My-Zsh | Priority | Description                                                                    |
+| --------------------------------------------------------------------------------------------- | --------- | -------- | ------------------------------------------------------------------------------ |
+| [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)               | ❌        | High     | Supports code highlighting in Zsh terminal.                                    |
+| [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions)                       | ❌        | High     | Supports suggestions for Zsh terminal code completion.                         |
+| [zsh-history-substring-search](https://github.com/zsh-users/zsh-history-substring-search)     | ❌        | Medium   | Supports searching for history commands using keyword with up/down arrow keys. |
+| [sudo](https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/sudo)                           | ✅        | Medium   | Adds `sudo` to the previous or current command with double `ESC`.              |
+| [colored-man-pages](https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/colored-man-pages) | ✅        | Medium   | Syntax coloring for `man` help manual.                                         |
+| [extract](https://github.com/le0me55i/zsh-extract)                                            | ✅        | Low      | Command `x` to extract various types of compressed files.                      |
+| [autojump](https://github.com/wting/autojump)                                                 | ✅        | Low      | Command `j` to automatically jump directories based on history.                |
+| [jsontools](https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/jsontools)                 | ✅        | Low      | Command `pp_json` to format JSON inputs.                                       |
+
+![colored man pages](/img/2023-11-03-18-21.webp)
+
+## Theme
+
+The only recommended theme is [Powerlevel10k](https://github.com/romkatv/powerlevel10k). No other Zsh theme is suggested due to Powerlevel10k's succinct and elegant design.
+
+P10K is presently the most commonly used theme for Zsh and is not included in Oh-My-Zsh default configuration. This underlines Powerlevel10k's excellence and popularity.
+
+> Powerlevel10k is a Zsh theme that emphasizes speed, flexibility, and out-of-the-box experience.
+
+The Powerlevel10k theme offers multiple customizable options. Upon its initial installation or using the `p10k configure` command, prompts appear for configuring the display, such as whether to show Unicode characters or gaps between multiple commands.
+
+![powerlevel10k theme](/img/2023-11-03-18-48.webp)
+
+## Zsh & Bash
+
+Linux users must be aware of the differences between Zsh and Bash to avoid pitfalls:
+
+1. Zsh is compatible with most Bash syntax but lacks compatibility with some Bash file wildcards, specifically the use of `*`.
+2. Zsh offers additional syntax extensions absent in Bash. Given the current prevalence of Bash in default Linux installations, it is advisable not to use Zsh extended syntax. Shell scripts should also utilize `#!/bin/bash` to ensure compatibility.
+
+## Configure Script
+
+### Specific Things To Do
+
+Zsh configuration entails three actions:
+
+1. Installing common plugins and the Powerlevel10k theme.
+2. Moving `.zcompdump-*` files to the `$ZSH/cache` directory.
+3. Adding configurations to all new users through the `/etc/skel/` directory.
+
+Regarding the second action, Zsh saves files used to expedite command completion in the format below, which defaults to the `$HOME` directory:
+
+```bash
+-rw-r--r--  1 aiktb aiktb  49K May 15 11:13 .zcompdump
+-rw-r--r--  1 aiktb aiktb  50K May 15 11:13 .zcompdump-shiro-5.8.1
+-r--r--r--  1 aiktb aiktb 115K May 15 11:13 .zcompdump-shiro-5.8.1.zwc
+```
+
+This format is undoubtedly unsightly and requires a configuration directory change. The solution for this can be found on [StackOverflow](https://stackoverflow.com/questions/62931101/i-have-multiple-files-of-zcompdump-why-do-i-have-multiple-files-of-these/76332959#76332959).
+
+The code below efficiently accomplishes the aforementioned three tasks. Linux users employing the apt package manager can use this script directly, while users of other package managers may need to modify the code accordingly.
+
+Regarding the third action, files in the `/etc/skel/` directory are automatically copied to the corresponding `home` directory during the creation of a new Linux user, sparing the hassle of reconfiguring Zsh for each user.
+
+### One-Click Configuration Script
+
+It is recommended to use the following command to download my one-click configuration script:
+
+```bash
+curl -sL https://raw.githubusercontent.com/aiktb/dotzsh/master/zsh.sh | bash && zsh
+```
+
+The code below efficiently accomplishes the aforementioned three tasks. Linux users employing the apt package manager can use this script directly, while users of other package managers may need to modify the code accordingly.
+
+```bash
+#!/bin/bash
+
+sudo apt install zsh -y
+# Install oh-my-zsh.
+0>/dev/null sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+ZSH_CUSTOM="$HOME/.oh-my-zsh/custom"
+export ZSH_CUSTOM
+# Configure plugins.
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "${ZSH_CUSTOM}"/plugins/zsh-syntax-highlighting
+git clone https://github.com/zsh-users/zsh-autosuggestions.git "${ZSH_CUSTOM}"/plugins/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-history-substring-search "${ZSH_CUSTOM}"/plugins/zsh-history-substring-search
+sed -i 's/^plugins=.*/plugins=(git\n extract\n sudo\n autojump\n jsontools\n colored-man-pages\n zsh-autosuggestions\n zsh-syntax-highlighting\n zsh-history-substring-search\n)/g' ~/.zshrc
+# Install powerlevel10k and configure it.
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git "${ZSH_CUSTOM}"/themes/powerlevel10k
+sed -i 's/^ZSH_THEME=.*/ZSH_THEME="powerlevel10k\/powerlevel10k"/g' ~/.zshrc
+# Move ".zcompdump-*" file to "$ZSH/cache" directory.
+sed -i -e '/source \$ZSH\/oh-my-zsh.sh/i export ZSH_COMPDUMP=\$ZSH\/cache\/.zcompdump-\$HOST' ~/.zshrc
+# Configure the default ZSH configuration for new users.
+sudo cp ~/.zshrc /etc/skel/
+sudo cp ~/.p10k.zsh /etc/skel/
+sudo cp -r ~/.oh-my-zsh /etc/skel/
+sudo chmod -R 755 /etc/skel/
+sudo chown -R root:root /etc/skel/
+```
+
+Many Zsh plugin installation documents utilize the following Zsh syntax extension. Please refrain from using this in Bash:
+
+```sh
+${ZSH_CUSTOM:-~/.oh-my-zsh/custom}
+```
+
+## Further Reading
+
+### Termius
+
+All demo images in this article were executed using [Termius](https://termius.com), which, as you can see, is a very nice terminal!
+
+Termius is currently included in the [GitHub Student Developer Pack](https://education.github.com/pack), which is free for one year for any certified student!
+
+### Httpie
+
+Another Shell Tool: [httpie](https://github.com/httpie/httpie), with a detailed [documentation](https://httpie.io/docs/cli).
+
+In brief, it serves as an alternative to `curl`, providing highlighted outputs and automatic JSON formatting for commands using `http` and `https`.
+
+```bash
+sudo apt install httpie
+```
+
+![httpie preview](/img/2023-11-03-18-52.webp)
