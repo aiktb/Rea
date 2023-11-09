@@ -92,7 +92,7 @@
 
 .vp-doc a:hover {
   color: var(--vp-c-brand-dark);
-  border-bottom: solid 2px var(--vp-c-brand);
+  border-bottom: solid 2px var(--vp-c-brand-dark);
 }
 
 /* Scrollbar Style */
