@@ -84,13 +84,13 @@
   color: var(--vp-c-brand);
 }
 
-.vp-doc a {
+.vp-doc a:not(.header-anchor) {
   color: var(--vp-c-brand);
   text-decoration: none;
   border-bottom: solid 2px var(--vp-c-brand);
 }
 
-.vp-doc a:hover {
+.vp-doc a:hover:not(.header-anchor) {
   color: var(--vp-c-brand-dark);
   border-bottom: solid 2px var(--vp-c-brand-dark);
 }
