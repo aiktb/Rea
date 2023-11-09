@@ -1,0 +1,5 @@
+{
+  "*.svg": "prettier --write --parser html",
+  "*.{json, md, vue, ts}": "prettier --write",
+  "*.{ts, vue}": "eslint --fix"
+}
