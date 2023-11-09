@@ -4,7 +4,7 @@ import { Icon } from '@iconify/vue'
 const items = [
   { title: 'GitHub', link: 'https://github.com/aiktb', icon: 'tabler:brand-github' },
   { title: 'Twitter', link: 'https://twitter.com/aiktb39', icon: 'tabler:brand-x' },
-  { title: 'RSS Feed', link: '/rss.xml', icon: 'tabler:rss' },
+  { title: 'RSS Feed', link: '/feed.xml', icon: 'tabler:rss' },
 ]
 </script>
 
