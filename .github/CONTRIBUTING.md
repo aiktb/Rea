@@ -37,3 +37,9 @@ pnpm dev
 ```
 
 After executing the above command, visit http://localhost:5173 and try modifying the source code. You'll get live update.
+
+Note that `/feed.xml` and `/sitemap.xml` are only visible after the build is complete, please confirm at http://localhost:8080 after using the following commands.
+
+```bash
+pnpm build && pnpm preview
+```
