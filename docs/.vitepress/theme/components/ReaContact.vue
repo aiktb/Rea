@@ -14,8 +14,8 @@ const items = [
   <div class="contact">
     <a v-for="item of items" :key="item.link" :href="item.link" target="_blank" class="item">
       <Icon :icon="item.icon" />
-      {{ item.message }}</a
-    >
+      {{ item.message }}
+    </a>
   </div>
 </template>
 
