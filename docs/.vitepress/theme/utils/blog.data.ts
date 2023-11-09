@@ -16,9 +16,13 @@ interface PostGroup {
   year: string
 }
 
-function extractTitle(markdown: string): string {
+const extractTitle = (markdown: string): string => {
   const match = markdown.match(/^# (.*)$/m)
   return match ? match[1]! : 'Not Found Title in Markdown'
+}
+
+const formatURL = (url: string): string => {
+  return url.replace(/\/\d+\./, '/')
 }
 
 export default createContentLoader('blog/*.md', {
@@ -29,7 +33,7 @@ export default createContentLoader('blog/*.md', {
       .map((post) => {
         return {
           title: extractTitle(post.src!),
-          url: post.url,
+          url: formatURL(post.url),
           date: post.frontmatter.date.toISOString().slice(0, 10),
         }
       })
