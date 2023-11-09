@@ -1,4 +1,4 @@
-# rea
+# Rea
 
 ## Description
 
@@ -8,8 +8,8 @@ Personal blog based on [VitePress](https://vitepress.dev/) default theme extensi
 
 ## Features
 
-- Comments([Giscus](https://giscus.app/))
 - Dark mode only
+- Comments([Giscus](https://giscus.app/))
 - Local Search
 - Google Analytics support
 - Reading progress bar
@@ -25,4 +25,4 @@ The code uses the [MIT](https://github.com/aiktb/Rea/blob/main/LICENSE) license,
 
 ## Preview
 
-![preview](https://s2.loli.net/2023/07/18/lRfr6Wteka4CwFP.webp)
+![preview](./docs/public/github-readme.webp)
