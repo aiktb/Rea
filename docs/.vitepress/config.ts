@@ -17,6 +17,9 @@ export default defineConfig({
   sitemap: {
     hostname: 'https://aiktb.com',
   },
+  rewrites: {
+    ':blog/:num.:title.md': ':blog/:title.md',
+  },
   vite: {
     resolve: {
       alias: [
