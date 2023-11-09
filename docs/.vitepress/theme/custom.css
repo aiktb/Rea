@@ -1,0 +1,111 @@
+:root {
+  --vp-font-family-base: 'Raleway', 'M PLUS Rounded 1c', ui-sans-serif, system-ui, -apple-system,
+    blinkmacsystemfont, 'Segoe UI', roboto, 'Helvetica Neue', helvetica, arial, 'Noto Sans',
+    sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  --vp-font-family-mono: 'JetBrains Mono', 'M PLUS Rounded 1c', ui-monospace, sfmono-regular,
+    'SF Mono', menlo, monaco, consolas, 'Liberation Mono', 'Courier New', monospace;
+}
+
+:root {
+  --my-white: #a9d5c4;
+  --my-black: #0c1222;
+  --my-black-light: #13212e;
+  --my-blue: #1174b1;
+  --my-blue-dark: #2b7b86;
+  --my-blue-light: #4df5ff;
+  --my-gray: #9fa3a5;
+  --my-gray-dark: #364149;
+}
+
+:root {
+  --vp-c-bg: var(--my-black);
+  --vp-c-text-1: var(--my-white);
+  --vp-c-text-2: var(--my-gray);
+  --vp-nav-bg-color: var(--my-black);
+  --vp-c-bg-soft: var(--my-black-light);
+  --vp-c-brand: var(--my-blue-light);
+  --vp-c-mute: var(--my-black);
+  --vp-c-text-code: var(--my-white);
+  --vp-code-block-bg: var(--my-black-light);
+  --vp-c-divider: var(--my-blue);
+  --vp-c-brand-dark: var(--my-blue-dark);
+  --vp-c-bg-alt: var(--my-black-light);
+  --vp-c-bg-elv: var(--my-black);
+  --vp-custom-block-details-bg: var(--my-black-light);
+  --vp-custom-block-details-text: var(--my-white);
+  --vp-c-bg-elv-mute: var(--my-gray-dark);
+  --vp-c-gutter: var(--my-blue);
+  --vp-c-brand-1: var(--my-blue-light);
+  /* 404 button:hover color */
+  --vp-c-brand-2: var(--my-blue-dark);
+}
+
+/* VitePress Builtin Components Style */
+.VPLink {
+  font-weight: bold !important;
+  text-align: center;
+}
+
+.VPNavBarTitle a {
+  font-family: 'Paytone One', sans-serif;
+  color: var(--vp-c-brand) !important;
+}
+
+.VPNavScreenMenuLink {
+  border-bottom: 1px dashed var(--vp-c-bg-elv-mute) !important;
+}
+
+.VPDocAsideOutline .content {
+  border-left: none;
+}
+
+.VPDocAsideOutline .outline-marker {
+  left: 0;
+}
+
+.VPSocialLinks::before {
+  display: none;
+}
+
+.DocSearch-Button {
+  height: 1.875rem;
+}
+
+/* Markdown Style */
+.vp-doc img {
+  display: block;
+  margin: 0 auto;
+  border-radius: 8px;
+}
+
+.vp-doc :not(pre) > code {
+  white-space: nowrap;
+  background-color: var(--vp-c-bg-soft);
+  color: var(--vp-c-brand);
+}
+
+.vp-doc a {
+  color: var(--vp-c-brand);
+  text-decoration: none;
+  border-bottom: solid 2px var(--vp-c-brand);
+}
+
+.vp-doc a:hover {
+  color: var(--vp-c-brand-dark);
+  border-bottom: solid 2px var(--vp-c-brand);
+}
+
+/* Scrollbar Style */
+::-webkit-scrollbar {
+  width: 0.25rem;
+  height: 0.25rem;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #656d79;
+  border-radius: 0.25rem;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--vp-c-text-2);
+}
