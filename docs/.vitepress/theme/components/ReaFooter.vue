@@ -71,6 +71,12 @@ const items = [
   display: inline;
   vertical-align: middle;
   margin-left: 3px;
+  transition: all 300ms;
+  filter: brightness(250%);
+}
+
+.netlify.icon:hover {
+  filter: none;
 }
 
 .copyright {
