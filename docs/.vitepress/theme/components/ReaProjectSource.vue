@@ -23,7 +23,7 @@ const props = defineProps<{
       target="_blank"
       title="chrome web store"
     >
-      <Icon icon="tabler:brand-chrome" />
+      <Icon icon="simple-icons:googlechrome" />
       Chrome
     </a>
     <a
@@ -32,7 +32,7 @@ const props = defineProps<{
       target="_blank"
       title="Add-ons for Firefox"
     >
-      <Icon icon="tabler:brand-firefox" />
+      <Icon icon="simple-icons:firefoxbrowser" />
       Firefox
     </a>
     <a
@@ -41,7 +41,7 @@ const props = defineProps<{
       target="_blank"
       title="Microsoft Edge Add-ons"
     >
-      <Icon icon="tabler:brand-edge" />
+      <Icon icon="simple-icons:microsoftedge" />
       Edge
     </a>
   </section>
@@ -64,6 +64,6 @@ const props = defineProps<{
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  border-bottom: none;
+  border-bottom: none !important;
 }
 </style>

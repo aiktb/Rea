@@ -3,7 +3,7 @@ import { Icon } from '@iconify/vue'
 
 const items = [
   { message: 'aiktb', link: 'https://github.com/aiktb', icon: 'tabler:brand-github' },
-  { message: '@aiktb39', link: 'https://twitter.com/aiktb39', icon: 'tabler:brand-twitter' },
+  { message: '@aiktb39', link: 'https://twitter.com/aiktb39', icon: 'tabler:brand-x' },
   { message: 'hey@aiktb.com', link: 'mailto:hey@aiktb.com', icon: 'tabler:mail' },
   { message: 't.me/aiktb', link: 'https://t.me/aiktb', icon: 'tabler:brand-telegram' },
   { message: 'r/aiktb', link: 'https://reddit.com/u/aiktb', icon: 'tabler:brand-reddit' },
