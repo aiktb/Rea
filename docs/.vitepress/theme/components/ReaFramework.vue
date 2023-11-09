@@ -34,6 +34,6 @@ const items = [
 
 .framework a {
   /* Conflicts with `.vp-doc a`. */
-  border-bottom: none;
+  border-bottom: none !important;
 }
 </style>
