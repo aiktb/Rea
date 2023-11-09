@@ -1,10 +1,7 @@
-# Rea
-
-## Description
-
-My blog URL: https://aiktb.com
-
-Personal blog based on [VitePress](https://vitepress.dev/) default theme extension.
+<div align="center">
+    <img src="./docs/public/logo-with-text.svg" height="96">
+	<p>Personal blog based on <a href="https://vitepress.dev/" target="_blank">VitePress</a> default theme extension.</p>
+</div>
 
 ## Features
 
