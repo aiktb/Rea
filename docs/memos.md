@@ -56,7 +56,7 @@ Too long, [check out the full list of expansions at my Gist](https://gist.github
 
 ## Windows Applications
 
-- [Starrea](https://apps.microsoft.com/detail/starrea-epub-reader/)
+- [Starrea](https://apps.microsoft.com/detail/starrea-epub-reader/9NK7HZ90B3S6)
 - [Typora](https://typora.io)
 - [Telegram](https://telegram.org/)
 - [Drawboard PDF](https://www.drawboard.com/)
