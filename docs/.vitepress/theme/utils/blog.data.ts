@@ -35,5 +35,6 @@ const transformRawPosts = (rawPosts: ContentData[]) => {
 
 export default createContentLoader('blog/*.md', {
   includeSrc: true,
+  // The raw will not contain any pages that begin with dot, such as `.example.md`.
   transform: (raw) => transformRawPosts(raw),
 })
