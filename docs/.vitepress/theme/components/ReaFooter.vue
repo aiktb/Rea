@@ -6,6 +6,15 @@ const items = [
   { title: 'Twitter', link: 'https://twitter.com/aiktb39', icon: 'tabler:brand-x' },
   { title: 'RSS Feed', link: '/feed.xml', icon: 'tabler:rss' },
 ]
+
+const generateCopyright = () => {
+  const startYear = 2023
+  const currentYear = new Date().getFullYear()
+  if (currentYear === startYear) {
+    return `Copyright © ${startYear}`
+  }
+  return `Copyright © ${startYear}-${currentYear}`
+}
 </script>
 
 <template>
@@ -32,7 +41,7 @@ const items = [
       <p class="copyright">
         <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a> |
         <a href="https://github.com/aiktb/Rea/blob/master/LICENSE" target="_blank">MIT License</a> |
-        Copyright © 2023 <a href="mailto:hey@aiktb.com" target="_blank">aiktb</a>
+        {{ generateCopyright() }} <a href="mailto:hey@aiktb.com" target="_blank">aiktb</a>
       </p>
     </div>
   </footer>
