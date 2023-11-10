@@ -93,14 +93,6 @@ export default defineConfig({
     [
       'link',
       {
-        rel: 'preload',
-        href: 'https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Paytone+One&family=Raleway:ital,wght@0,400;0,700;1,400;1,700&display=swap',
-        as: 'style',
-      },
-    ],
-    [
-      'link',
-      {
         rel: 'stylesheet',
         href: 'https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Paytone+One&family=Raleway:ital,wght@0,400;0,700;1,400;1,700&display=swap',
       },
