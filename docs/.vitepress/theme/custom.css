@@ -87,6 +87,7 @@
   white-space: nowrap;
   background-color: var(--vp-c-bg-soft);
   color: var(--vp-c-brand);
+  padding: 1px 4px;
 }
 
 .vp-doc a:not(.header-anchor) {
