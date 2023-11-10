@@ -1,5 +1,4 @@
-import type { Dictionary } from 'lodash'
-import { groupBy } from 'lodash-es'
+import _ from 'lodash'
 import { createContentLoader, type ContentData } from 'vitepress'
 
 interface Post {
@@ -8,7 +7,7 @@ interface Post {
   date: string // YYYY-MM-DD
 }
 
-declare const data: Dictionary<Post[]>
+declare const data: _.Dictionary<Post[]>
 // Sorted.
 export { data }
 
@@ -30,7 +29,7 @@ const transformRawPosts = (rawPosts: ContentData[]) => {
     }))
     .sort((a, b) => b.date.localeCompare(a.date))
 
-  return groupBy(posts, (post) => post.date.slice(0, 4))
+  return _.groupBy(posts, (post) => post.date.slice(0, 4))
 }
 
 export default createContentLoader('blog/*.md', {
