@@ -31,7 +31,6 @@ const items = [
 .contact .item {
   display: flex;
   align-items: center;
-  font-weight: bold;
   font-style: italic;
   gap: 0.25rem;
 }
