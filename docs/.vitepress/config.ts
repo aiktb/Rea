@@ -90,11 +90,21 @@ export default defineConfig({
     ['link', { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
     ['link', { rel: 'preconnect', href: 'https://fonts.googleapis.com' }],
     ['link', { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' }],
+    // The main typeface is 'Raleway', which contains only letters;
+    // the symbols and numbers in this typeface are ugly, and 'Montserrat' is used as a substitute.
+    // Also loaded are 'Paytone One' for the logo only and 'JetBrains Mono' in monospaced font.
     [
       'link',
       {
         rel: 'stylesheet',
-        href: 'https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Paytone+One&family=Raleway:ital,wght@0,400;0,700;1,400;1,700&display=swap',
+        href: 'https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,400;0,700;1,400;1,700&text=abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ&display=swap',
+      },
+    ],
+    [
+      'link',
+      {
+        rel: 'stylesheet',
+        href: 'https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,400;1,700&family=JetBrains+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Paytone+One&display=swap',
       },
     ],
     [
