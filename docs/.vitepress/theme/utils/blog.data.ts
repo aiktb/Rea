@@ -1,20 +1,16 @@
-import { createContentLoader } from 'vitepress'
+import type { Dictionary } from 'lodash'
+import { groupBy } from 'lodash-es'
+import { createContentLoader, type ContentData } from 'vitepress'
 
-export interface Post {
+interface Post {
   title: string
   url: string
-  // YYYY-MM-DD
-  date: string
+  date: string // YYYY-MM-DD
 }
 
-declare const data: PostGroup[]
+declare const data: Dictionary<Post[]>
 // Sorted.
 export { data }
-
-interface PostGroup {
-  posts: Post[]
-  year: string
-}
 
 const extractTitle = (markdown: string): string => {
   const match = markdown.match(/^# (.*)$/m)
@@ -25,31 +21,19 @@ const formatURL = (url: string): string => {
   return url.replace(/\/\d+\./, '/')
 }
 
+const transformRawPosts = (rawPosts: ContentData[]) => {
+  const posts: Post[] = rawPosts
+    .map((post) => ({
+      title: extractTitle(post.src!),
+      url: formatURL(post.url),
+      date: (post.frontmatter.date as Date).toISOString().slice(0, 10),
+    }))
+    .sort((a, b) => b.date.localeCompare(a.date))
+
+  return groupBy(posts, (post) => post.date.slice(0, 4))
+}
+
 export default createContentLoader('blog/*.md', {
   includeSrc: true,
-  render: true,
-  transform: (raw) => {
-    const posts: Post[] = raw
-      .map((post) => {
-        return {
-          title: extractTitle(post.src!),
-          url: formatURL(post.url),
-          date: post.frontmatter.date.toISOString().slice(0, 10),
-        }
-      })
-      .sort((a, b) => b.date.localeCompare(a.date))
-
-    const groupedPosts: PostGroup[] = []
-    let currentYear = ''
-    for (const post of posts) {
-      const year = post.date.slice(0, 4)
-      if (year !== currentYear) {
-        currentYear = year
-        groupedPosts.push({ year, posts: [post] })
-      } else {
-        groupedPosts[groupedPosts.length - 1]!.posts.push(post)
-      }
-    }
-    return groupedPosts
-  },
+  transform: (raw) => transformRawPosts(raw),
 })

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { Icon } from '@iconify/vue'
 
-import { data as posts } from '../utils/blog.data'
+import { data as groupedPosts } from '../utils/blog.data'
 
 const formatDate = (raw: string): string => {
   const date = new Date(raw)
@@ -18,10 +18,10 @@ const formatDate = (raw: string): string => {
       <h1 class="title">The Rea Blog <Icon class="icon" icon="tabler:activity" /></h1>
       <p>A technology-driven blog created by aiktb.</p>
     </section>
-    <template v-for="postGroup of posts" :key="postGroup.year">
-      <h2>{{ postGroup.year }}</h2>
+    <template v-for="year in Object.keys(groupedPosts)" :key="year">
+      <h2>{{ year }}</h2>
       <ul>
-        <li v-for="post of postGroup.posts" :key="post.url">
+        <li v-for="post of groupedPosts[year]" :key="post.url">
           <article class="article">
             <a :href="post.url" class="link">{{ post.title }}</a> -
             <dl>
