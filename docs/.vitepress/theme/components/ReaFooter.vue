@@ -40,8 +40,11 @@ const generateCopyright = () => {
       </p>
       <p class="copyright">
         <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a> |
-        <a href="https://github.com/aiktb/Rea/blob/master/LICENSE" target="_blank">MIT License</a> |
-        {{ generateCopyright() }} <a href="mailto:hey@aiktb.com" target="_blank">aiktb</a>
+        <a href="https://github.com/aiktb/Rea/blob/master/LICENSE" target="_blank">MIT License</a>
+        <span class="copyright-info">
+          <span class="divider"> | </span> {{ generateCopyright() }}
+          <a href="mailto:hey@aiktb.com" target="_blank">aiktb</a>
+        </span>
       </p>
     </div>
   </footer>
@@ -93,6 +96,24 @@ const generateCopyright = () => {
   font-size: 14px;
   font-weight: 500;
   color: var(--vp-c-text-2);
+}
+
+.divider {
+  display: none;
+}
+
+.copyright-info {
+  display: block;
+}
+
+@media (min-width: 640px) {
+  .divider {
+    display: inline;
+  }
+
+  .copyright-info {
+    display: inline;
+  }
 }
 
 .icons {
