@@ -1,5 +1,5 @@
 <div align="center">
-    <img src="./docs/public/logo-with-text.svg" height="96">
+    <img src="./docs/public/logo.svg" height="96">
 	<p>Personal blog based on <a href="https://vitepress.dev/" target="_blank">VitePress</a> default theme extension.</p>
 </div>
 
