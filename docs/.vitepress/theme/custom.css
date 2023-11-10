@@ -68,8 +68,12 @@
   display: none;
 }
 
-.DocSearch-Button {
+.VPNavBarSearch .DocSearch-Button {
   height: 1.875rem;
+}
+
+.VPLocalSearchBox .search-bar {
+  border-width: 2px !important;
 }
 
 /* Markdown Style */
