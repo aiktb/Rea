@@ -8,15 +8,12 @@ dependencies:
   '@iconify/vue':
     specifier: ^4.1.1
     version: 4.1.1(vue@3.3.8)
-  '@types/lodash':
-    specifier: ^4.14.201
-    version: 4.14.201
   feed:
     specifier: ^4.2.2
     version: 4.2.2
-  lodash.groupby:
-    specifier: ^4.6.0
-    version: 4.6.0
+  lodash-es:
+    specifier: ^4.17.21
+    version: 4.17.21
   vitepress:
     specifier: 1.0.0-rc.25
     version: 1.0.0-rc.25(@algolia/client-search@4.20.0)(@types/node@20.9.0)(search-insights@2.10.0)(typescript@5.2.2)
@@ -798,6 +795,7 @@ packages:
 
   /@types/lodash@4.14.201:
     resolution: {integrity: sha512-y9euML0cim1JrykNxADLfaG0FgD1g/yTHwUs/Jg9ZIU7WKj2/4IW9Lbb1WZbvck78W/lfGXFfe+u2EGfIJXdLQ==}
+    dev: true
 
   /@types/markdown-it@13.0.6:
     resolution: {integrity: sha512-0VqpvusJn1/lwRegCxcHVdmLfF+wIsprsKMC9xW8UPcTxhFcQtoN/fBU1zMe8pH7D/RuueMh2CaBaNv+GrLqTw==}
@@ -1981,8 +1979,8 @@ packages:
       p-locate: 5.0.0
     dev: true
 
-  /lodash.groupby@4.6.0:
-    resolution: {integrity: sha512-5dcWxm23+VAoz+awKmBaiBvzox8+RqMgFhi7UvX9DHZr2HdxHXM/Wrf8cfKpsW37RNrvtPn6hSwNqurSILbmJw==}
+  /lodash-es@4.17.21:
+    resolution: {integrity: sha512-mKnC+QJ9pWVzv+C4/U3rRsHapFfHvQFoFB92e52xeyGMcX6/OlIl78je1u8vePzYZSkkogMPJ2yjxxsb89cxyw==}
     dev: false
 
   /lodash.merge@4.6.2:
