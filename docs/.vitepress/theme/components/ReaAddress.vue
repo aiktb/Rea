@@ -13,7 +13,7 @@ const items = [
     <div class="contact">Contact me</div>
     <address class="items">
       <a v-for="item of items" :key="item.link" class="item" :href="item.link" target="_blank">
-        <Icon :icon="item.icon" width="1.2em" height="1.2em" />
+        <Icon :icon="item.icon" width="1.25em" height="1.25em" />
         {{ item.message }}
       </a>
     </address>
@@ -41,7 +41,7 @@ const items = [
 .item {
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 5px;
 }
 
 .item:hover {
