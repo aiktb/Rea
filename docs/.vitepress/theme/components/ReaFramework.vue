@@ -18,12 +18,26 @@ const items = [
         :icon="item.icon"
         :width="item.title === 'Golang' ? '3.5em' : '2em'"
         :height="item.title === 'Golang' ? '3.5em' : '2em'"
+        aria-hidden="true"
       />
+      <span class="sr-only">{{ item.title }}</span>
     </a>
   </div>
 </template>
 
 <style scoped>
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
 .framework {
   display: flex;
   gap: 1rem;

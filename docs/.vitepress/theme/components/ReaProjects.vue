@@ -49,7 +49,7 @@ const items = {
   <div class="projects">
     <h1 class="title">
       Projects
-      <Icon class="icon" icon="tabler:sparkles" />
+      <Icon class="icon" aria-hidden="true" icon="tabler:sparkles" />
     </h1>
     <h2>Browser Extension</h2>
     <template v-for="item of items.extension" :key="item.github">

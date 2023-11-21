@@ -15,7 +15,9 @@ const formatDate = (raw: string): string => {
 <template>
   <main class="blog">
     <section>
-      <h1 class="title">The Rea Blog <Icon class="icon" icon="tabler:activity" /></h1>
+      <h1 class="title">
+        The Rea Blog <Icon class="icon" aria-hidden="true" icon="tabler:activity" />
+      </h1>
       <p>A technology-driven blog created by aiktb.</p>
     </section>
     <template v-for="year in Object.keys(groupedPosts)" :key="year">

@@ -28,14 +28,15 @@ const generateCopyright = () => {
           :title="item.title"
           target="_blank"
         >
-          <Icon :icon="item.icon" width="1.5em" height="1.5em" />
+          <span class="sr-only">{{ item.title }}</span>
+          <Icon :icon="item.icon" width="1.5em" height="1.5em" aria-hidden="true" />
         </a>
       </div>
       <p class="message">
         Proudly hosted with
-        <a href="https://www.netlify.com/" title="Netlify">
-          <span class="hidden"> Netlify </span>
-          <Icon class="netlify icon" height="2em" icon="logos:netlify" />
+        <a href="https://www.netlify.com/" target="_blank">
+          <span class="sr-only"> Netlify </span>
+          <Icon class="netlify icon" height="2em" aria-hidden="true" icon="logos:netlify" />
         </a>
       </p>
       <p class="copyright">
@@ -74,9 +75,16 @@ const generateCopyright = () => {
   gap: 1ex;
 }
 
-.hidden {
+.sr-only {
   position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
   clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
 }
 
 .netlify.icon {

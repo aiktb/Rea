@@ -23,7 +23,7 @@ const props = defineProps<{
       target="_blank"
       title="chrome web store"
     >
-      <Icon icon="simple-icons:googlechrome" />
+      <Icon aria-hidden="true" icon="simple-icons:googlechrome" />
       Chrome
     </a>
     <a
@@ -32,7 +32,7 @@ const props = defineProps<{
       target="_blank"
       title="Add-ons for Firefox"
     >
-      <Icon icon="simple-icons:firefoxbrowser" />
+      <Icon aria-hidden="true" icon="simple-icons:firefoxbrowser" />
       Firefox
     </a>
     <a
@@ -41,13 +41,13 @@ const props = defineProps<{
       target="_blank"
       title="Microsoft Edge Add-ons"
     >
-      <Icon icon="simple-icons:microsoftedge" />
+      <Icon aria-hidden="true" icon="simple-icons:microsoftedge" />
       Edge
     </a>
   </section>
   <section v-if="props.source.website" class="source">
     <a :href="props.source.website">
-      <Icon icon="tabler:link" />
+      <Icon aria-hidden="true" icon="tabler:link" />
       {{ props.source.website }}
     </a>
   </section>
