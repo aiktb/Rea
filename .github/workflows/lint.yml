@@ -1,4 +1,4 @@
-name: Run linter ang check types
+name: Run linter and check types
 on:
   workflow_dispatch:
   push:
