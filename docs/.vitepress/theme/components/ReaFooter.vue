@@ -41,7 +41,7 @@ const generateCopyright = () => {
       </p>
       <p class="copyright">
         <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a> |
-        <a href="https://github.com/aiktb/Rea/blob/master/LICENSE" target="_blank">MIT License</a>
+        <a href="https://github.com/aiktb/Rea/blob/main/LICENSE" target="_blank">MIT License</a>
         <span class="copyright-info">
           <span class="divider"> | </span> {{ generateCopyright() }}
           <a href="mailto:hey@aiktb.com" target="_blank">aiktb</a>
