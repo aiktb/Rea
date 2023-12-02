@@ -18,7 +18,7 @@ Please make sure to read the [Contributing Guide](https://github.com/aiktb/Rea/b
 
 ## License
 
-The code uses the [MIT](https://github.com/aiktb/Rea/blob/main/LICENSE) license, and the blog post uses the [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) license.
+The code uses the [MIT](https://github.com/aiktb/Rea/blob/main/LICENSE-CODE) license, and the blog post uses the [CC BY 4.0](https://github.com/aiktb/Rea/blob/main/LICENSE-POST) license.
 
 ## Preview
 
