@@ -3,7 +3,5 @@ docs/.vitepress/cache/
 docs/.vitepress/dist/
 .idea/
 .vscode/
-docs/blog/1.better-kuromoji-fork.md
 # An md file that begins with a dot should be considered a draft.
 .*.md
-.obsidian
