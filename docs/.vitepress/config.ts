@@ -84,9 +84,9 @@ export default defineConfig({
     ],
   },
   head: [
-    // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta/name/theme-color
+    // https://html.spec.whatwg.org/multipage/semantics.html#meta-theme-color
     ['meta', { name: 'theme-color', content: '#13212e' }],
-    // https://developer.chrome.com/blog/auto-dark-theme/
+    // https://html.spec.whatwg.org/multipage/semantics.html#meta-color-scheme
     ['meta', { name: 'color-scheme', content: 'light dark' }],
     ['link', { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
     ['link', { rel: 'preconnect', href: 'https://fonts.googleapis.com' }],
