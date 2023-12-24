@@ -1,5 +1,6 @@
 :root {
-  --vp-font-family-base: 'Raleway', 'Montserrat', 'M PLUS Rounded 1c', ui-sans-serif, system-ui,
+  /* Montserrat font only contain numbers, Raleway font not contain numbers. */
+  --vp-font-family-base: 'Montserrat', 'Raleway', 'M PLUS Rounded 1c', ui-sans-serif, system-ui,
     -apple-system, blinkmacsystemfont, 'Segoe UI', roboto, 'Helvetica Neue', helvetica, arial,
     'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
     'Noto Color Emoji';
