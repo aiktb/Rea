@@ -31,8 +31,8 @@ export const feed: RssGenerator = async (config) => {
   for (const { url, excerpt, frontmatter, html } of posts) {
     feed.addItem({
       title: frontmatter.title as string,
-      id: `${baseUrl}${url}`,
-      link: `${baseUrl}${url}`,
+      id: `${baseUrl}${url.replace(/\/\d+\./, '/')}`,
+      link: `${baseUrl}${url.replace(/\/\d+\./, '/')}`,
       description: excerpt as string,
       content: html as string,
       author: [{ name: `${id}` }],
