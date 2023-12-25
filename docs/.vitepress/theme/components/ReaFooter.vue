@@ -44,7 +44,7 @@ const generateCopyright = () => {
         <a href="https://github.com/aiktb/Rea/blob/main/LICENSE" target="_blank">MIT License</a>
         <span class="copyright-info">
           <span class="divider"> | </span> {{ generateCopyright() }}
-          <a href="mailto:hey@aiktb.com" target="_blank">aiktb</a>
+          <a class="name" href="mailto:hey@aiktb.com" target="_blank">aiktb</a>
         </span>
       </p>
     </div>
@@ -114,7 +114,11 @@ const generateCopyright = () => {
   display: block;
 }
 
-@media (min-width: 640px) {
+.name {
+  font-style: italic;
+}
+
+@media (min-width: 500px) {
   .divider {
     display: inline;
   }
