@@ -1,10 +1,13 @@
 <script setup lang="ts">
 import { Icon } from '@iconify/vue'
 
+// prettier-ignore
 const items = [
   { title: 'GitHub', link: 'https://github.com/aiktb', icon: 'tabler:brand-github' },
   { title: 'Twitter', link: 'https://twitter.com/aiktb39', icon: 'tabler:brand-x' },
   { title: 'RSS Feed', link: '/feed.xml', icon: 'tabler:rss' },
+  // { title: 'Github Sponsor', link: 'https://github.com/sponsors/aiktb', icon: 'line-md:heart-twotone' },
+  { title: 'Buy me a coffee', link: 'https://www.buymeacoffee.com/aiktb', icon: 'line-md:buy-me-a-coffee-twotone' },
 ]
 
 const generateCopyright = () => {
