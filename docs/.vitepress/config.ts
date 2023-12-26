@@ -25,7 +25,7 @@ export default defineConfig({
       alias: [
         {
           find: /^.*\/VPFooter\.vue$/,
-          replacement: fileURLToPath(new URL('./theme/components/ReaFooter.vue', import.meta.url)),
+          replacement: fileURLToPath(new URL('./theme/components/VFooter.vue', import.meta.url)),
         },
       ],
     },

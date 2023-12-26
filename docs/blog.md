@@ -7,7 +7,7 @@ progress: false
 ---
 
 <script setup lang="ts">
-import ReaBlog from './.vitepress/theme/components/ReaBlog.vue'
+import Blog from '.vitepress/theme/components/VBlog.vue'
 </script>
 
-<ReaBlog />
+<Blog />

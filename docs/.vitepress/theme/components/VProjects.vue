@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { Icon } from '@iconify/vue'
 
-import ReaProjectSource from './ReaProjectSource.vue'
+import ProjectSource from './VProjectSource.vue'
 
 const items = {
   extension: [
@@ -57,7 +57,7 @@ const items = {
         {{ item.title }}
       </h3>
       <p>{{ item.description }}</p>
-      <ReaProjectSource :source="item.source" />
+      <ProjectSource :source="item.source" />
     </template>
     <h2>Website</h2>
     <template v-for="item of items.website" :key="item.github">
@@ -65,7 +65,7 @@ const items = {
         {{ item.title }}
       </h3>
       <p>{{ item.description }}</p>
-      <ReaProjectSource :source="item.source"
+      <ProjectSource :source="item.source"
     /></template>
   </div>
 </template>

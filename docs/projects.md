@@ -8,7 +8,7 @@ progress: false
 ---
 
 <script setup lang="ts">
-import ReaProjects from './.vitepress/theme/components/ReaProjects.vue'
+import Projects from '.vitepress/theme/components/VProjects.vue'
 </script>
 
-<ReaProjects />
+<Projects />
