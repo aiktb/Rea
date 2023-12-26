@@ -1,7 +1,6 @@
 name: Check for dead links pointing outside
 
 on:
-  repository_dispatch:
   workflow_dispatch:
   schedule:
     - cron: '00 18 * * *'
