@@ -1,16 +1,18 @@
 <div align="center">
-    <img src="./docs/public/logo.svg" height="96">
+    <a href="https://aiktb.com"><img src="./docs/public/logo.svg" height="96"></a>
 	<p>Personal blog based on <a href="https://vitepress.dev/" target="_blank">VitePress</a> default theme extension.</p>
 </div>
 
 ## Features
 
-- Dark mode only
+- Dark Mode Only
+- Posts Index Page
+- Reading Progress Bar
 - Comments([Giscus](https://giscus.app/))
 - Local Search
-- Google Analytics support
-- Reading progress bar
-- RSS feed
+- Google Analytics Support
+- RSS Feed
+- Sitemap
 
 ## Contribution
 
