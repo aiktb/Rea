@@ -16,12 +16,13 @@ const props = defineProps<{
 </script>
 
 <template>
-  <section v-if="props.source.extension" class="source">
+  <section v-if="props.source.extension" class="flex items-center gap-4">
     <a
       v-if="props.source.extension.chrome"
       :href="props.source.extension.chrome"
       target="_blank"
-      title="chrome web store"
+      title="Chrome Web Store"
+      class="flex items-center gap-2 border-none"
     >
       <Icon aria-hidden="true" icon="simple-icons:googlechrome" />
       Chrome
@@ -31,6 +32,7 @@ const props = defineProps<{
       :href="props.source.extension.firefox"
       target="_blank"
       title="Add-ons for Firefox"
+      class="flex items-center gap-2 border-none"
     >
       <Icon aria-hidden="true" icon="simple-icons:firefoxbrowser" />
       Firefox
@@ -40,30 +42,16 @@ const props = defineProps<{
       :href="props.source.extension.edge"
       target="_blank"
       title="Microsoft Edge Add-ons"
+      class="flex items-center gap-2 border-none"
     >
       <Icon aria-hidden="true" icon="simple-icons:microsoftedge" />
       Edge
     </a>
   </section>
-  <section v-if="props.source.website" class="source">
-    <a :href="props.source.website">
+  <section v-if="props.source.website" class="flex items-center gap-4">
+    <a :href="props.source.website" class="flex items-center gap-2 border-none">
       <Icon aria-hidden="true" icon="tabler:link" />
       {{ props.source.website }}
     </a>
   </section>
 </template>
-
-<style scoped>
-.source {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
-.source a {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  border-bottom: none !important;
-}
-</style>

@@ -11,7 +11,7 @@ const { frontmatter, title } = useData()
   -->
   <div v-if="frontmatter.comments !== false" :key="title" class="giscus">
     <!--
-      It doesn't make sense to use `v-if` to uninstall `script` here,
+      It doesn't make sense to use `v-if` to unmount `script` here,
       what needs to be uninstalled is the giscus comment section that has been inserted into the DOM.
     -->
     <component

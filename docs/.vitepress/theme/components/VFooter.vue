@@ -16,143 +16,66 @@ const generateCopyright = () => {
   if (currentYear === startYear) {
     return `Copyright © ${startYear}`
   }
+
   return `Copyright © ${startYear}-${currentYear}`
 }
 </script>
 
 <template>
-  <footer class="footer">
-    <div class="container">
-      <div class="icons">
+  <footer class="z-[--vp-z-index-footer] border-t border-[--vp-c-gutter] px-6 py-8">
+    <div class="max-[--vp-layout-max-width] mx-auto text-center">
+      <div class="mb-3 flex items-center justify-center gap-4">
         <a
           v-for="item of items"
           :key="item.link"
           :href="item.link"
           :title="item.title"
           target="_blank"
+          class="transition duration-300 hover:text-[--vp-c-brand-1]"
         >
           <span class="sr-only">{{ item.title }}</span>
-          <Icon :icon="item.icon" width="1.5em" height="1.5em" aria-hidden="true" />
+          <Icon :icon="item.icon" width="1.25em" height="1.25em" aria-hidden="true" />
         </a>
       </div>
-      <p class="message">
+      <p
+        class="relative items-center justify-center gap-[1ex] text-sm/6 font-medium text-[--vp-c-text-2]"
+      >
         Proudly hosted with
         <a href="https://www.netlify.com/" target="_blank">
           <span class="sr-only"> Netlify </span>
-          <Icon class="netlify icon" height="2em" aria-hidden="true" icon="logos:netlify" />
+          <Icon
+            class="ml-[3px] inline align-middle brightness-200 transition duration-300 hover:filter-none"
+            height="2em"
+            aria-hidden="true"
+            icon="logos:netlify"
+          />
         </a>
       </p>
-      <p class="copyright">
-        <a href="https://github.com/aiktb/Rea/blob/main/LICENSE-POST" target="_blank">CC BY 4.0</a>
+      <p class="text-sm/6 font-medium text-[--vp-c-text-2]">
+        <a
+          class="text-[--vp-c-brand-1] transition duration-300 hover:text-[--vp-c-brand-2]"
+          href="https://github.com/aiktb/Rea/blob/main/LICENSE-POST"
+          target="_blank"
+          >CC BY 4.0</a
+        >
         |
-        <a href="https://github.com/aiktb/Rea/blob/main/LICENSE-CODE" target="_blank"
+        <a
+          class="text-[--vp-c-brand-1] transition duration-300 hover:text-[--vp-c-brand-2]"
+          href="https://github.com/aiktb/Rea/blob/main/LICENSE-CODE"
+          target="_blank"
           >MIT License</a
         >
-        <span class="copyright-info">
-          <span class="divider"> | </span> {{ generateCopyright() }}
-          <a class="name" href="mailto:hey@aiktb.com" target="_blank">aiktb</a>
+        <span class="block sm:inline">
+          <span class="hidden sm:inline"> | </span>
+          {{ generateCopyright() }}
+          <a
+            class="italic text-[--vp-c-brand-1] transition duration-300 hover:text-[--vp-c-brand-2]"
+            href="mailto:hey@aiktb.com"
+            target="_blank"
+            >aiktb</a
+          >
         </span>
       </p>
     </div>
   </footer>
 </template>
-
-<style scoped>
-.footer {
-  z-index: var(--vp-z-index-footer);
-  border-top: 1px solid var(--vp-c-gutter);
-  padding: 32px 24px;
-}
-
-.container {
-  margin: 0 auto;
-  max-width: var(--vp-layout-max-width);
-  text-align: center;
-}
-
-.message {
-  position: relative;
-  line-height: 24px;
-  font-size: 14px;
-  font-weight: 500;
-  color: var(--vp-c-text-2);
-  align-items: center;
-  justify-content: center;
-  gap: 1ex;
-}
-
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border-width: 0;
-}
-
-.netlify.icon {
-  display: inline;
-  vertical-align: middle;
-  margin-left: 3px;
-  transition: all 300ms;
-  filter: brightness(250%);
-}
-
-.netlify.icon:hover {
-  filter: none;
-}
-
-.copyright {
-  line-height: 24px;
-  font-size: 14px;
-  font-weight: 500;
-  color: var(--vp-c-text-2);
-}
-
-.divider {
-  display: none;
-}
-
-.copyright-info {
-  display: block;
-}
-
-.name {
-  font-style: italic;
-}
-
-@media (min-width: 500px) {
-  .divider {
-    display: inline;
-  }
-
-  .copyright-info {
-    display: inline;
-  }
-}
-
-.icons {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 1rem;
-  margin-bottom: 1rem;
-}
-
-.icons a:hover {
-  color: var(--vp-c-brand-1);
-  transition: all 300ms;
-}
-
-.copyright a {
-  color: var(--vp-c-brand-1);
-}
-
-.copyright a:hover {
-  color: var(--vp-c-brand-2);
-  transition: all 300ms;
-}
-</style>

@@ -1,91 +1,40 @@
 <script setup lang="ts">
 import { Icon } from '@iconify/vue'
 
-// prettier-ignore
-const contactItems = [
-  { name: 'email', message: 'hey@aiktb.com', link: 'mailto:hey@aiktb.com', icon: 'tabler:mail' },
-  { name: 'twitter', message: '@aiktb39', link: 'https://twitter.com/aiktb39', icon: 'tabler:brand-x' },
-  { name: 'telegram', message: 't.me/aiktb', link: 'https://t.me/aiktb', icon: 'tabler:brand-telegram' },
-]
-// prettier-ignore
-const supportItems = [
-  // { name: 'Github Sponsor', link:'https://github.com/sponsors/aiktb', icon: 'line-md:heart-twotone' },
-  { name: 'Buy Me a Coffee', link: 'https://www.buymeacoffee.com/aiktb', icon: 'line-md:buy-me-a-coffee-twotone' },
+//prettier-ignore
+const messages = [
+  {
+    title: 'Support me',
+    items: [
+      // { name: 'Github Sponsor', link:'https://github.com/sponsors/aiktb', icon: 'line-md:heart-twotone' },
+      { message: 'Buy Me a Coffee', link: 'https://www.buymeacoffee.com/aiktb', icon: 'line-md:buy-me-a-coffee-twotone' },
+    ],
+  },
+  {
+    title: 'Contact me',
+    items: [
+      { message: 'hey@aiktb.com', link: 'mailto:hey@aiktb.com', icon: 'tabler:mail' },
+      { message: '@aiktb39', link: 'https://twitter.com/aiktb39', icon: 'tabler:brand-x' },
+      { message: 't.me/aiktb', link: 'https://t.me/aiktb', icon: 'tabler:brand-telegram' },
+    ],
+  },
 ]
 </script>
 
 <template>
-  <div class="address">
-    <div class="contact">Contact me</div>
-    <address class="items">
+  <section v-for="message of messages" :key="message.title" class="mt-3 pl-4 text-[13px]/7">
+    <div class="font-bold capitalize" role="heading" aria-level="2">{{ message.title }}</div>
+    <address class="flex flex-col text-[--vp-c-text-2]">
       <a
-        v-for="item of contactItems"
+        v-for="item of message.items"
         :key="item.link"
-        class="item"
+        class="flex items-center gap-1.5 hover:text-[--vp-c-text-1]"
         :href="item.link"
         target="_blank"
       >
         <Icon :icon="item.icon" width="1.25em" height="1.25em" aria-hidden="true" />
-        <span class="sr-only">{{ item.name }}</span>
         {{ item.message }}
       </a>
     </address>
-  </div>
-  <div class="address">
-    <div class="contact">Support me</div>
-    <address class="items">
-      <a
-        v-for="item of supportItems"
-        :key="item.link"
-        class="item"
-        :href="item.link"
-        target="_blank"
-      >
-        <Icon :icon="item.icon" width="1.25em" height="1.25em" aria-hidden="true" />
-        <span class="sr-only">{{ item.name }}</span>
-        {{ item.name }}
-      </a>
-    </address>
-  </div>
+  </section>
 </template>
-
-<style scoped>
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border-width: 0;
-}
-
-.address {
-  margin-top: 0.8rem;
-  padding-left: 1rem;
-  font-size: 13px;
-  line-height: 28px;
-}
-
-.contact {
-  font-weight: bold;
-}
-
-.items {
-  display: flex;
-  flex-direction: column;
-  color: var(--vp-c-text-2);
-}
-
-.item {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-}
-
-.item:hover {
-  color: var(--vp-c-text-1);
-}
-</style>

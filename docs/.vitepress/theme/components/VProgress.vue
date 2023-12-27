@@ -23,24 +23,15 @@ onUnmounted(() => {
 
 <template>
   <Teleport v-if="frontmatter.progress !== false" to="body">
-    <progress class="progress" :value="scrollPercentage" max="100" />
+    <progress
+      class="progress fixed left-0 top-0 z-50 h-[5px] w-full appearance-none border-none bg-transparent"
+      :value="scrollPercentage"
+      max="100"
+    />
   </Teleport>
 </template>
 
 <style scoped>
-.progress {
-  position: fixed;
-  left: 0;
-  top: 0;
-  z-index: 999;
-  width: 100%;
-  height: 5px;
-  /* firefox */
-  background-color: transparent;
-  border: none;
-  appearance: none;
-}
-
 .progress::-webkit-progress-bar {
   background-color: transparent;
 }

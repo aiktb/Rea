@@ -12,40 +12,17 @@ const items = [
 </script>
 
 <template>
-  <div class="contact">
-    <a v-for="item of items" :key="item.link" :href="item.link" target="_blank" class="item">
+  <div class="flex flex-wrap items-center justify-center gap-4">
+    <a
+      v-for="item of items"
+      :key="item.link"
+      :href="item.link"
+      target="_blank"
+      class="flex items-center gap-1 italic"
+    >
       <Icon aria-hidden="true" :icon="item.icon" />
       <span class="sr-only">{{ item.name }}</span>
       {{ item.message }}
     </a>
   </div>
 </template>
-
-<style scoped>
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border-width: 0;
-}
-
-.contact {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-  flex-wrap: wrap;
-}
-
-.contact .item {
-  display: flex;
-  align-items: center;
-  font-style: italic;
-  gap: 0.25rem;
-}
-</style>

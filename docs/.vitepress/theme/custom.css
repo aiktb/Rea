@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
   /* Montserrat font only contain numbers, Raleway font not contain numbers. */
   --vp-font-family-base: 'Montserrat', 'Raleway', 'M PLUS Rounded 1c', ui-sans-serif, system-ui,
@@ -71,6 +75,7 @@
 
 .VPNavBarSearch .DocSearch-Button {
   height: 1.875rem;
+  background-color: var(--vp-c-bg-alt);
 }
 
 .VPLocalSearchBox .search-bar {

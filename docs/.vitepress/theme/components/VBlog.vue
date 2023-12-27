@@ -13,10 +13,11 @@ const formatDate = (raw: string): string => {
 </script>
 
 <template>
-  <main class="blog">
+  <div>
     <section>
-      <h1 class="title">
-        The Rea Blog <Icon class="icon" aria-hidden="true" icon="tabler:activity" />
+      <h1 class="flex items-center gap-2">
+        The Rea Blog
+        <Icon class="inline text-[--vp-c-brand-1]" aria-hidden="true" icon="tabler:activity" />
       </h1>
       <p>A technology-driven blog created by aiktb.</p>
     </section>
@@ -24,55 +25,17 @@ const formatDate = (raw: string): string => {
       <h2>{{ year }}</h2>
       <ul>
         <li v-for="post of groupedPosts[year]" :key="post.url">
-          <article class="article">
-            <a :href="post.url" class="link">{{ post.title }}</a> -
-            <dl>
-              <dt class="hidden">Published on</dt>
-              <dd>
-                <time :datetime="post.date" class="time">{{ formatDate(post.date) }}</time>
+          <article>
+            <a :href="post.url" class="border-none">{{ post.title }}</a> -
+            <dl class="m-0 inline">
+              <dt class="sr-only">Published on</dt>
+              <dd class="m-0 inline">
+                <time :datetime="post.date" class="font-bold">{{ formatDate(post.date) }}</time>
               </dd>
             </dl>
           </article>
         </li>
       </ul>
     </template>
-  </main>
+  </div>
 </template>
-
-<style scoped>
-.hidden {
-  position: absolute;
-  padding: 0;
-  margin: 0;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border-width: 0;
-  display: inline;
-}
-
-.title {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.icon {
-  display: inline;
-  color: var(--vp-c-brand-1);
-}
-
-.article dd,
-.article dl {
-  margin: 0;
-  display: inline;
-}
-
-.link {
-  border-bottom: none !important;
-}
-
-.time {
-  font-weight: bold;
-}
-</style>

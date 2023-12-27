@@ -12,8 +12,15 @@ const items = [
 </script>
 
 <template>
-  <div class="framework">
-    <a v-for="item of items" :key="item.link" :href="item.link" :title="item.title" target="_blank">
+  <div class="flex flex-wrap items-center justify-center gap-4">
+    <a
+      v-for="item of items"
+      :key="item.link"
+      :href="item.link"
+      :title="item.title"
+      target="_blank"
+      class="border-none"
+    >
       <Icon
         :icon="item.icon"
         :width="item.title === 'Golang' ? '3.5em' : '2em'"
@@ -24,30 +31,3 @@ const items = [
     </a>
   </div>
 </template>
-
-<style scoped>
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border-width: 0;
-}
-
-.framework {
-  display: flex;
-  gap: 1rem;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
-.framework a {
-  /* Conflicts with `.vp-doc a`. */
-  border-bottom: none !important;
-}
-</style>
