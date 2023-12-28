@@ -87,6 +87,8 @@
   display: block;
   margin: 0 auto;
   border-radius: 8px;
+  width: 100%;
+  aspect-ratio: 16 / 9;
 }
 
 .vp-doc :not(pre) > code {

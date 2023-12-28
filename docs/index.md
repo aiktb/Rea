@@ -18,8 +18,6 @@ Hey there, I'm aiktb, a Web Full-Stack Developer brimming with enthusiasm for th
 
 My goal is to actively engage in the Github open-source community, crafting and maintaining some really useful stuff for people. It'd be awesome if my work and blog articles could be of help to you. 😎
 
-![aiktb's GitHub stats](https://github-readme-stats.vercel.app/api?username=aiktb&theme=transparent&show_icons=true&rank_icon=github&hide_border=true&title_color=4df5ff&text_color=a9d5c4&icon_color=4df5ff&hide_title=true){height=165}
-
 Additionally, this blog is powered by [VitePress](https://vitepress.dev/), which is lightning-fast and an excellent fit for building blogs!
 
 Currently, I'm particularly interested in the following tech stack:
