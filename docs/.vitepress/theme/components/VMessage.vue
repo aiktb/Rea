@@ -13,7 +13,7 @@ const messages = [
   {
     title: 'Contact me',
     items: [
-      { message: 'hey@aiktb.com', link: 'mailto:hey@aiktb.com', icon: 'tabler:mail' },
+      { message: 'hey@aiktb.dev', link: 'mailto:hey@aiktb.dev', icon: 'tabler:mail' },
       { message: '@aiktb39', link: 'https://twitter.com/aiktb39', icon: 'tabler:brand-x' },
       { message: 't.me/aiktb', link: 'https://t.me/aiktb', icon: 'tabler:brand-telegram' },
     ],

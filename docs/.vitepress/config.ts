@@ -15,7 +15,7 @@ export default defineConfig({
   },
   buildEnd: feed,
   sitemap: {
-    hostname: 'https://aiktb.com',
+    hostname: 'https://aiktb.dev',
   },
   rewrites: {
     ':blog/:num.:title.md': ':blog/:title.md',
@@ -58,7 +58,7 @@ export default defineConfig({
       'script',
       {
         async: '',
-        src: 'https://www.googletagmanager.com/gtag/js?id=G-MCQSMRVDJN',
+        src: 'https://www.googletagmanager.com/gtag/js?id=G-TJQVDW3EZK',
       },
     ],
     [
@@ -67,7 +67,7 @@ export default defineConfig({
       `window.dataLayer = window.dataLayer || [];
        function gtag(){ dataLayer.push(arguments); }
        gtag('js', new Date());
-       gtag('config', 'G-MCQSMRVDJN');`,
+       gtag('config', 'G-TJQVDW3EZK');`,
     ],
   ],
   themeConfig: {

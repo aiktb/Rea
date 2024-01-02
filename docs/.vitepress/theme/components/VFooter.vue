@@ -70,7 +70,7 @@ const generateCopyright = () => {
           {{ generateCopyright() }}
           <a
             class="italic text-[--vp-c-brand-1] transition duration-300 hover:text-[--vp-c-brand-2]"
-            href="mailto:hey@aiktb.com"
+            href="mailto:hey@aiktb.dev"
             target="_blank"
             >aiktb</a
           >

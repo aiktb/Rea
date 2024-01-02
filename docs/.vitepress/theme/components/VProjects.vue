@@ -43,7 +43,7 @@ const items = [
         description: 'Personal blog theme developed based on VitePress.',
         github: 'https://github.com/aiktb/Rea',
         source: {
-          website: 'https://aiktb.com',
+          website: 'https://aiktb.dev',
         },
       },
     ],

@@ -5,7 +5,7 @@ import { Icon } from '@iconify/vue'
 const items = [
   { name: 'github',message: 'aiktb', link: 'https://github.com/aiktb', icon: 'tabler:brand-github' },
   { name: 'twitter',message: '@aiktb39', link: 'https://twitter.com/aiktb39', icon: 'tabler:brand-x' },
-  { name: 'email',message: 'hey@aiktb.com', link: 'mailto:hey@aiktb.com', icon: 'tabler:mail' },
+  { name: 'email',message: 'hey@aiktb.dev', link: 'mailto:hey@aiktb.dev', icon: 'tabler:mail' },
   { name: 'telegram',message: 't.me/aiktb', link: 'https://t.me/aiktb', icon: 'tabler:brand-telegram' },
   { name: 'reddit',message: 'r/aiktb', link: 'https://reddit.com/u/aiktb', icon: 'tabler:brand-reddit' },
 ]

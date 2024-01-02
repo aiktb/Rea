@@ -11,7 +11,7 @@ export const feed: RssGenerator = async (config) => {
     id: baseUrl,
     title: `${id}'s blog`,
     language: 'en-US',
-    author: { name: `${id}`, email: 'hey@aiktb.com', link: 'https://github.com/aiktb' },
+    author: { name: `${id}`, email: 'hey@aiktb.dev', link: 'https://github.com/aiktb' },
     link: baseUrl,
     description: 'A technology-driven blog created by aiktb.',
     image: `${baseUrl}/social-preview.png`,

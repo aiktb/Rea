@@ -6,8 +6,8 @@
   "type": "module",
   "author": {
     "name": "aiktb",
-    "email": "hey@aiktb.com",
-    "url": "https://aiktb.com"
+    "email": "hey@aiktb.dev",
+    "url": "https://aiktb.dev"
   },
   "engines": {
     "node": ">=20.0.0"

@@ -1,5 +1,5 @@
 <div align="center">
-    <a href="https://aiktb.com"><img src="./docs/public/logo.svg" height="96"></a>
+    <a href="https://aiktb.dev"><img src="./docs/public/logo.svg" height="96"></a>
 	<p>Personal blog based on <a href="https://vitepress.dev/" target="_blank">VitePress</a> default theme extension.</p>
 </div>
 
