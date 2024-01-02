@@ -1,3 +1,4 @@
+@tailwind base;
 @tailwind components;
 @tailwind utilities;
 
@@ -9,6 +10,11 @@
     'Noto Color Emoji';
   --vp-font-family-mono: 'JetBrains Mono', 'M PLUS Rounded 1c', ui-monospace, sfmono-regular,
     'SF Mono', menlo, monaco, consolas, 'Liberation Mono', 'Courier New', monospace;
+}
+
+pre,
+code {
+  font-family: var(--vp-font-family-mono) !important;
 }
 
 :root {
@@ -74,6 +80,7 @@
 
 .VPNavBarSearch .DocSearch-Button {
   height: 1.875rem;
+  background-color: var(--vp-c-bg-alt);
 }
 
 .VPLocalSearchBox .search-bar {
