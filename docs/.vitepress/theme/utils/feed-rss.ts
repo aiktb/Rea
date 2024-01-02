@@ -4,14 +4,13 @@ import { Feed } from 'feed'
 import { createContentLoader, type ContentData, type SiteConfig } from 'vitepress'
 
 const id: string = 'aiktb'
-const baseUrl: string = `https://${id}.com`
+const baseUrl: string = `https://aiktb.dev`
 type RssGenerator = (config: SiteConfig) => Promise<void>
 export const feed: RssGenerator = async (config) => {
   const feed: Feed = new Feed({
     id: baseUrl,
     title: `${id}'s blog`,
     language: 'en-US',
-    author: { name: `${id}`, email: 'hey@aiktb.dev', link: 'https://github.com/aiktb' },
     link: baseUrl,
     description: 'A technology-driven blog created by aiktb.',
     image: `${baseUrl}/social-preview.png`,
@@ -31,11 +30,12 @@ export const feed: RssGenerator = async (config) => {
 
   for (const { url, frontmatter, html } of posts) {
     feed.addItem({
-      title: frontmatter.title as string,
+      title: frontmatter.title,
       id: `${baseUrl}${url.replace(/\/\d+\./, '/')}`,
       link: `${baseUrl}${url.replace(/\/\d+\./, '/')}`,
       date: frontmatter.date,
       content: html!,
+      author: [{ name: `${id}`, email: 'hey@aiktb.dev', link: 'https://github.com/aiktb' }],
     })
   }
 
