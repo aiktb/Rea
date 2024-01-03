@@ -21,7 +21,7 @@ const formatDate = (raw: string): string => {
       </h1>
       <p>A technology-driven blog created by aiktb.</p>
     </section>
-    <template v-for="year in Object.keys(groupedPosts)" :key="year">
+    <template v-for="year in Object.keys(groupedPosts).reverse()" :key="year">
       <h2>{{ year }}</h2>
       <ul>
         <li v-for="post of groupedPosts[year]" :key="post.url">
